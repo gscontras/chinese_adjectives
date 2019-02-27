@@ -49,16 +49,16 @@
   <div class="slide" id="i0" >
     <img src="../_shared/images/meaningLab.png" alt="UCI meaning lab" id="meaningLabLogo"></img>
     <p id="instruct-text">这份问卷关于解释中文的短语。任务大约需要6分钟。 请认真完成。 谢谢</p>
-    <button id="start_button" type="button">Start Experiment</button>
-    <p id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists at the University of California, Irvine. If you have questions about this research, please contact Greg Scontras at <a href="mailto://g.scontras@uci.edu">g.scontras@uci.edu</a>. You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>
+    <button id="start_button" type="button">开始实验</button>
+    <p id="legal">法律信息： 通过回答以下问题，您正在参与一项由加州大学欧文分校(University of California, Irvine)认知科学家进行的研究。如果您对本研究有任何疑问，请通过<a href="mailto://g.scontras@uci.edu">g.scontras@uci.edu</a>与Greg Scontras联系。您必须年满18岁才能参加。您参与这项研究是自愿的。您可以拒绝回答以下任何或所有问题。，您可以在任何时间拒绝进一步参与研究，没有不良后果。本问卷采用匿名填写; 请您参与研究的研究人员将不会收到您的任何个人信息。</p>
   </div>
 
   <div class="slide" id="instructions1">
-    <h3>Instructions</h3>
+    <h3>操作说明</h3>
     <p> 你将会看到26组简短的物体描述。<br>
     你的任务是决定哪种描述听起来更合适。</p>
     <!-- <p class="instruction_condition">{{}}</p> -->
-    <button onclick="_s.button()">Continue</button>
+    <button onclick="_s.button()">继续</button>
   </div>
 
   <div class="slide" id="multi_slider">
@@ -94,65 +94,121 @@
 
     <p>调整滑块以表明你的选择。</p><br>
 
-    <button onclick="_s.button()">Continue</button>
+    <p><label><input type="radio"  name="sense" value="no"/>选项听起来都不自然</label></p><br>
+
+    <button onclick="_s.button()">继续</button>
     <div class="err">请调整滑块位置以继续。</div>
   </div>
 
   <div class="slide"  id="subj_info">
     <div class="long_form">
-      <div class="subj_info_title">Additional information</div>
-      <p class="info">Answering these questions is optional, but will help us understand your answers.</p>
-      <p>Did you read the instructions and do you think you did the HIT correctly?</p>
-      <label><input type="radio"  name="assess" value="No"/>No</label>
-      <label><input type="radio"  name="assess" value="Yes"/>Yes</label>
-      <label><input type="radio"  name="assess" value="Confused"/>I was confused</label>
+      <div class="subj_info_title">其他信息</div>
+      <p class="info">回答这些问题是非强制的，但会帮助我们了解你的答案</p>
+      <p>你阅读了操作说明并且认为你正确的完成了HIT?</p>
+      <label><input type="radio"  name="assess" value="No"/>不是</label>
+      <label><input type="radio"  name="assess" value="Yes"/>是的</label>
+      <label><input type="radio"  name="assess" value="Confused"/>我不确定</label>
 
-      <p>Gender:
+      <p>性别:
         <select id="gender">
           <label><option value=""/></label>
-          <label><option value="Male"/>Male</label>
-          <label><option value="Female"/>Female</label>
-          <label><option value="Other"/>Other</label>
+          <label><option value="Male"/>男</label>
+          <label><option value="Female"/>女</label>
+          <label><option value="Other"/>其他</label>
         </select>
       </p>
 
-      <p>Age: <input type="text" id="age"/></p>
+      <p>年龄: <input type="text" id="age"/></p>
 
-      <p>Level Of Education:
+      <p>受教育程度:
         <select id="education">
           <label><option value="-1"/></label>
-          <label><option value="0"/>Some High School</label>
-          <label><option value="1"/>Graduated High School</label>
-          <label><option value="2"/>Some College</label>
-          <label><option value="3"/>Graduated College</label>
-          <label><option value="4"/>Hold a higher degree</label>
+          <label><option value="0"/>高中阶段</label>
+          <label><option value="1"/>高中毕业</label>
+          <label><option value="2"/>大学阶段</label>
+          <label><option value="3"/>大学毕业</label>
+          <label><option value="4"/>持有更高学位</label>
         </select>
       </p>
 
-      <p>Native Language: <input type="text" id="language"/></p>
-      <label>(the language(s) spoken at home when you were a child)</label>
+      <p>母语: <input type="text" id="language"/></p>
+      <label>(你儿时在家使用的语言)</label>
 
-      <p>Did you enjoy the hit?</p>
+      <p>你喜欢这个HIT吗?</p>
       <select id="enjoyment">
         <label><option value="-1"></option></label>
-        <label><option value="0">Worse than the Average HIT</option></label>
-        <label><option value="1" >An Average HIT</option></label>
-        <label><option value="2">Better than average HIT</option></label>
+        <label><option value="0">低于平均HIT</option></label>
+        <label><option value="1" >等于平均HIT</option></label>
+        <label><option value="2">高于平均HIT</option></label>
       </select>
 
-      <p>We would be interested in any comments you have about this experiment. Please type them here:</p>
+      <p>下列哪个选项最好的描述了你?</p>
+      <select id="describe">
+        <label><option value="-1"></option></label>
+        <label><option value="ChineseChinese">我学习汉语作为我的母语，汉语也是我主要使用的语言</option></label>
+        <label><option value="ChineseEnglish" >我把中文作为我的母语，但现在英语是我主要使用的语言</option></label>
+        <label><option value="EnglishChinese">我把英语作为母语，后来又学了汉语</option></label>
+        <label><option value="other">我的母语是英语或汉语以外的语言，后来我又学习了汉语</option></label>
+      </select>
+
+      <p>你在讲汉语的国家居住过吗?</p>
+      <select id="lived">
+        <label><option value="-1"></option></label>
+        <label><option value="never">没有，我从未在讲汉语的国家生活过</option></label>
+        <label><option value="both8" >是的，在8岁之前和之后都是</option></label>
+        <label><option value="before8">是的，8岁以前</option></label>
+        <label><option value="after8">是的，8岁以后</option></label>
+      </select>
+
+      <p>你在一个讲汉语的国家生活了多少年?</p>
+      <select id="yearsLived">
+        <label><option value="-1"></option></label>
+        <label><option value="never">我从未在讲汉语的国家生活过</option></label>
+        <label><option value="1" >1年一下</option></label>
+        <label><option value="1to5">1-5年</option></label>
+        <label><option value="5plus">5年以上</option></label>
+      </select>
+
+      <p>你在家里最常用的语言是什么?</p>
+      <select id="homeLanguage">
+        <label><option value="-1"></option></label>
+        <label><option value="chinese">汉语</option></label>
+        <label><option value="english" >英语</option></label>
+        <label><option value="other">其他</option></label>
+      </select>
+
+      <p>你在家以外的地方最常使用的语言是什么?</p>
+      <select id="outsideLanguage">
+        <label><option value="-1"></option></label>
+        <label><option value="chinese">汉语</option></label>
+        <label><option value="english" >英语</option></label>
+        <label><option value="other">其他</option></label>
+      </select>
+
+      <p>你认为你的中文水平如何?</p>
+      <select id="proficiency">
+        <label><option value="-1"></option></label>
+        <label><option value="basic">初级</option></label>
+        <label><option value="intermediate" >中级</option></label>
+        <label><option value="advanced">高级</option></label>
+        <label><option value="nearNative">接近母语级别</option></label>
+        <label><option value="native">母语级别</option></label>
+        <label><option value="other">我希望不回答</option></label>
+      </select>
+
+      <p>我们期待你对本次试验的任何评价。请在这里填写:</p>
       <textarea id="comments" rows="3" cols="50"></textarea>
       <br/>
-      <button onclick="_s.submit()">Submit</button>
+      <button onclick="_s.submit()">提交</button>
     </div>
   </div>
 
   <div id="thanks" class="slide js" >
-    <p  class="big">Thanks for your time!</p>
+    <p  class="big">谢谢参与!</p>
   </div>
 
   <div class="progress">
-    <span>Progress:</span>
+    <span>进度:</span>
     <div class="bar-wrapper">
       <div class="bar" width="0%">
       </div>

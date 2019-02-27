@@ -29,7 +29,7 @@ function make_slides(f) {
       $(".err").hide();
       this.init_sliders();      
       exp.sliderPost = null;
-      // $('input[name="sense"]:checked').attr('checked',false);
+      $('input[name="sense"]:checked').attr('checked',false);   
       this.stim = stim; //FRED: allows you to access stim in helpers
       //var noun_data = _.sample(corpus.Noun)
       //this.noun_data = noun_data;
@@ -49,13 +49,25 @@ function make_slides(f) {
 
       $(".noun").html(stim.Noun);
 
-      //$(".woman1").html(woman1);
+      exp.conditionDE = _.sample(["both","first","second","neither"]);
 
-      //$(".woman2").html(man2);
+      if (exp.conditionDE=="neither") {
+        var de1 = ""
+        var de2 = ""
+      } else if (exp.conditionDE=="both") {
+        var de1 = "的"
+        var de2 = "的"
+      } else if (exp.conditionDE=="first") {
+        var de1 = "的"
+        var de2 = ""
+      } else if (exp.conditionDE=="second") {
+        var de1 = ""
+        var de2 = "的"
+      }
 
-      $(".low").html("\""+ stim.Predicate2 + stim.Predicate1 + stim.Noun + "\"");
+      $(".low").html("\""+ stim.Predicate2 + de1 + stim.Predicate1 + de2 + stim.Noun + "\"");
 
-      $(".high").html("\""+ stim.Predicate1 + stim.Predicate2 + stim.Noun + "\"");
+      $(".high").html("\""+ stim.Predicate1 + de1 + stim.Predicate2 + de2 + stim.Noun + "\"");
 
       // $(".utterance1").html("\"That "+ stim.Noun + " " + this.verbs[0] + " " + stim.Predicate + ".\"");
 
@@ -88,7 +100,12 @@ function make_slides(f) {
         this.log_responses();
         _stream.apply(this); //use exp.go() if and only if there is no "present" data.
       } else {
-        $(".err").show();
+        if ($("input[type=radio]:checked").length != 0) {
+          this.log_responses();
+          _stream.apply(this);
+        } else {
+          $(".err").show();
+        }
       }
     },
 
@@ -106,12 +123,17 @@ function make_slides(f) {
         exp.data_trials.push({
           "response" : exp.sliderPost,
           "noun" : this.stim.Noun,  
+          "nounEnglish" : this.stim.EnglishNoun,  
           "nounclass" : this.stim.NounClass,        
           "predicate1" : this.stim.Predicate1,
+          "predicate1English" : this.stim.English1,
           "predicate2" : this.stim.Predicate2,
+          "predicate2English" : this.stim.English2,
           "class1" : this.stim.Class1,
           "class2" : this.stim.Class2,                     
-          "slide_number" : exp.phase
+          "slide_number" : exp.phase,
+          "condition" : exp.conditionDE,
+          "sense" : $('input[name="sense"]:checked').val()
         });
     },
   });
@@ -123,11 +145,17 @@ function make_slides(f) {
       exp.subj_data = {
         language : $("#language").val(),
         enjoyment : $("#enjoyment").val(),
-        asses : $('input[name="assess"]:checked').val(),
+        assess : $('input[name="assess"]:checked').val(),
         age : $("#age").val(),
         gender : $("#gender").val(),
         education : $("#education").val(),
         comments : $("#comments").val(),
+        describe : $("#describe").val(),
+        lived : $("#lived").val(),
+        yearsLived : $("#yearsLived").val(),
+        homeLanguage : $("#homeLanguage").val(),
+        outsideLanguage : $("#outsideLanguage").val(),
+        proficiency : $("#proficiency").val()
       };
       exp.go(); //use exp.go() if and only if there is no "present" data.
     }
@@ -153,9 +181,18 @@ function make_slides(f) {
 
 /// init ///
 function init() {
+  repeatWorker = false;
+  (function(){
+    var ut_id = "chinese-adjectives";
+    if (UTWorkerLimitReached(ut_id)) {
+      $('.slide').empty();
+      repeatWorker = true;
+      alert("您已达到完成这项程序HIT允许的最多次数。请点击\"Return HIT\"以免影响您的通过率。You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.");
+    }
+  })();
+
   exp.trials = [];
   exp.catch_trials = [];
-  exp.instruction = _.sample(["instruction1","instruction2"]);
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
