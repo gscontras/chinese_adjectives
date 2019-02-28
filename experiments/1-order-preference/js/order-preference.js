@@ -122,12 +122,12 @@ function make_slides(f) {
     log_responses : function() {
         exp.data_trials.push({
           "response" : exp.sliderPost,
-          "noun" : this.stim.Noun,  
+          // "noun" : this.stim.Noun,  
           "nounEnglish" : this.stim.EnglishNoun,  
           "nounclass" : this.stim.NounClass,        
-          "predicate1" : this.stim.Predicate1,
+          // "predicate1" : this.stim.Predicate1,
           "predicate1English" : this.stim.English1,
-          "predicate2" : this.stim.Predicate2,
+          // "predicate2" : this.stim.Predicate2,
           "predicate2English" : this.stim.English2,
           "class1" : this.stim.Class1,
           "class2" : this.stim.Class2,                     
