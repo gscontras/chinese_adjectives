@@ -1,0 +1,4 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,1,both8,english,HINDI,0,Male,27,ChineseEnglish,NICE,advanced,2,english
+1,Yes,5plus,both8,english,chinese,1,Male,46,ChineseEnglish,,intermediate,3,chinese
+2,Yes,5plus,before8,english,中文,0,Male,27,ChineseChinese,,nearNative,3,chinese

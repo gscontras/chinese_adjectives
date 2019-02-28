@@ -1,0 +1,8 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,No,never,both8,chinese,United States,0,Male,30,ChineseEnglish,---,basic,1,english
+1,Yes,5plus,both8,english,Mandarin ,1,Female,30,ChineseEnglish,It is fun! ,native,1,chinese
+2,Yes,-1,-1,-1,,-1,Male,26,-1,,-1,2,-1
+3,No,5plus,after8,chinese,enlgish,1,Male,23,ChineseChinese,,basic,1,chinese
+4,Yes,1,never,chinese,27,1,Female,English,EnglishChinese,Nice,advanced,1,english
+5,NA,-1,-1,-1,,-1,,,-1,,-1,-1,-1
+6,Yes,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
