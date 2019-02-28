@@ -3,7 +3,7 @@ num_round_dirs=$(echo */ | wc | awk '{print $2}')
 for i in `seq 1 $num_round_dirs`;
 do
 	cd round$i
-	submiterator getresults chinese-order
-	submiterator reformat chinese-order
+	python OLDsubmiterator.py getresults chinese-order2
+	python OLDsubmiterator.py reformat chinese-order2
 	cd ..
 done
