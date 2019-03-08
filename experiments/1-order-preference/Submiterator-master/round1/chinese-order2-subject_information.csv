@@ -6,3 +6,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 4,Yes,5plus,before8,english,中文,2,Female,30,ChineseEnglish,"大多數的描述都不太自然, 例如""藍的大的桌子"", 雖然文法上合理, 但自然的說法應該會說""藍的大桌子""",native,4,chinese
 5,Yes,5plus,both8,english,中文,1,Male,34,ChineseEnglish,很好奇这个试验的目的和方法,native,3,chinese
 6,NA,-1,-1,-1,,-1,,,-1,,-1,-1,-1
+7,NA,-1,-1,-1,,-1,,,-1,,-1,-1,-1
+8,NA,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese

@@ -6,6 +6,8 @@ Thu Feb 28 09:27:55 PST 2019,A39L5W9N08RN33,0.4
 Thu Feb 28 09:46:08 PST 2019,A26LBAAIP5J93S,0.4
 Thu Feb 28 10:22:58 PST 2019,ABOUT2YMNZ9VI,0.4
 Thu Feb 28 10:40:14 PST 2019,A1C6NTK19FBQO0,0.4
-,total paid to workers:,=SUM(c2:c8)
-,40% paid to Amazon:,=.4*c9
-,total:,=SUM(c9:c10
+Thu Feb 28 10:48:52 PST 2019,A3OWEYP3RDYXRU,0.4
+Thu Feb 28 10:49:57 PST 2019,A31BHRW6QKVBQ9,0.4
+,total paid to workers:,=SUM(c2:c10)
+,40% paid to Amazon:,=.4*c11
+,total:,=SUM(c11:c12

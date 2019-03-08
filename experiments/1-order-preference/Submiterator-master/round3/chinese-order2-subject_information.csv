@@ -6,3 +6,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 4,Yes,1,never,chinese,27,1,Female,English,EnglishChinese,Nice,advanced,1,english
 5,NA,-1,-1,-1,,-1,,,-1,,-1,-1,-1
 6,Yes,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
+7,Yes,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
+8,Yes,5plus,before8,chinese,chinese,1,Male,30,ChineseChinese,,native,3,chinese

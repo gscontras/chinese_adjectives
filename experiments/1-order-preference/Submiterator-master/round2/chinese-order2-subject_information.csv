@@ -2,3 +2,9 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 0,Yes,1,both8,english,HINDI,0,Male,27,ChineseEnglish,NICE,advanced,2,english
 1,Yes,5plus,both8,english,chinese,1,Male,46,ChineseEnglish,,intermediate,3,chinese
 2,Yes,5plus,before8,english,中文,0,Male,27,ChineseChinese,,nearNative,3,chinese
+3,Yes,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
+4,Yes,5plus,both8,english,Hong Kong,1,Female,45,ChineseChinese,the answers you provided are confusing,intermediate,1,chinese
+5,Yes,5plus,both8,english,Cantonese,1,Female,30,ChineseEnglish,,nearNative,2,chinese
+6,Yes,5plus,both8,english,中文,1,Female,22,ChineseChinese,,native,2,chinese
+7,Yes,never,both8,english,United States,0,Male,25,ChineseEnglish,,native,0,chinese
+8,Yes,1to5,before8,other,Chinese,1,Male,39,EnglishChinese,这是一项有趣的任务，我非常喜欢它,nearNative,2,english
