@@ -21,7 +21,7 @@ d = d[d$yearsLived=="5plus",]
 d = d[d$language=="chinese"|d$language=="Chinese"|d$language=="Mandarin "|d$language=="中文"|d$language=="普通話",]
 
 
-length(unique(d$workerid)) # n=7
+length(unique(d$workerid))
 
 summary(d)
 
