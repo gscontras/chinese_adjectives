@@ -1,0 +1,10 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,5plus,both8,english,中文,1,Male,48,ChineseEnglish,,native,4,-1
+1,No,never,never,chinese,,0,Male,29,ChineseChinese,VERY NICE,intermediate,0,chinese
+2,No,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
+3,No,never,never,chinese,CHINA,0,Male,23,ChineseChinese,,basic,0,chinese
+4,Yes,never,never,chinese,tamil,0,Male,25,ChineseChinese,,basic,0,-1
+5,Yes,5plus,both8,chinese,Chinese,2,Male,46,ChineseChinese,很不错的试验，只有以汉语为母语才能准确完成试验的。,native,3,chinese
+6,No,1,before8,chinese,English,0,Female,33,ChineseEnglish,,basic,1,-1
+7,NA,1,never,english,India,1,Male,26,ChineseChinese,GOOD,intermediate,1,english
+8,Yes,-1,-1,-1,,-1,Male,,-1,,-1,-1,-1

@@ -1,0 +1,10 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,5plus,both8,chinese,mandarin,0,Female,28,ChineseEnglish,,native,3,chinese
+1,No,1,both8,english,India,0,Male,24,ChineseEnglish,你阅读了操作说明并且认为你正确的完成了HIT?,advanced,1,chinese
+2,Yes,1,both8,chinese,,0,Female,,ChineseEnglish,,intermediate,1,chinese
+3,No,never,never,chinese,,0,Male,23,ChineseChinese,,basic,0,chinese
+4,NA,1,never,english,YES,0,Male,26,ChineseChinese,GOOD,intermediate,0,english
+5,No,never,never,chinese,India,0,Male,,ChineseChinese,,advanced,0,chinese
+6,NA,1,both8,english,Italia,0,Female,42,EnglishChinese,,advanced,2,english
+7,No,1,never,chinese,,0,Male,,ChineseChinese,حسن,intermediate,0,chinese
+8,No,never,both8,chinese,,-1,Male,,ChineseEnglish,,basic,0,chinese

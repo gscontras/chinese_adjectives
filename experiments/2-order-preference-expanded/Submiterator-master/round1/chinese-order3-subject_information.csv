@@ -1,0 +1,10 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,5plus,both8,english,中文,0,Female,38,ChineseEnglish,,native,3,chinese
+1,NA,never,never,chinese,english,-1,Male,24,ChineseChinese,,intermediate,0,chinese
+2,NA,never,both8,chinese,ttrt,0,Female,24,ChineseChinese,,nearNative,0,chinese
+3,Yes,never,before8,english,TAMIL,1,Female,26,ChineseEnglish,GOOD,advanced,1,english
+4,Yes,1,before8,english,Pakistan,0,Male,29,ChineseEnglish,,intermediate,1,chinese
+5,Confused,1to5,after8,english,英语,1,Female,19,EnglishChinese,,intermediate,1,english
+6,Yes,-1,-1,-1,,-1,,,-1,,-1,-1,-1
+7,Yes,5plus,before8,english,中文,2,Male,20,ChineseChinese,有些词是真的太诡异了XD 还有一些 比如 新的红的沙发 ---新的红沙发 emmm,native,2,chinese
+8,Yes,5plus,both8,english,"中文（Chinese, both Manderin and Cantonese）",1,Male,28,ChineseEnglish,很多都是Google Translate 级别的翻译，有些可能更糟糕...,native,3,chinese

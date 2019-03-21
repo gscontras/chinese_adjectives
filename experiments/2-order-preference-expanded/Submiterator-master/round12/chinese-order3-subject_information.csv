@@ -1,0 +1,10 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,never,never,chinese,TAMIL,0,Male,25,ChineseChinese,,basic,0,chinese
+1,NA,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
+2,NA,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
+3,Yes,1,both8,english,India,0,Female,26,ChineseEnglish,GOOD,advanced,1,chinese
+4,Confused,never,never,chinese,我不确定,0,Male,我不确定,ChineseEnglish,其他信息,nearNative,1,chinese
+5,Yes,5plus,before8,english,廣東話,2,Female,39,ChineseChinese,,native,4,chinese
+6,No,never,never,chinese,,0,Male,25,ChineseChinese,,basic,0,chinese
+7,Yes,never,never,chinese,,0,Male,,ChineseChinese,,basic,0,chinese
+8,Yes,5plus,both8,english,中文,1,Female,25,ChineseChinese,,native,4,chinese

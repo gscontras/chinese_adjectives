@@ -1,0 +1,10 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,No,-1,-1,-1,,-1,Male,,-1,,-1,0,-1
+1,Yes,never,never,chinese,中文,0,Male,31,ChineseChinese,好,basic,0,chinese
+2,Yes,5plus,both8,english,Cantonese,2,Male,47,ChineseEnglish,,advanced,3,chinese
+3,Yes,1to5,both8,english,INDIAN,1,Female,24,ChineseEnglish,,basic,2,english
+4,NA,1,never,chinese,ewe,0,Male,weeeee,ChineseEnglish,,native,0,english
+5,Yes,5plus,before8,english,Chinese,2,Female,26,ChineseEnglish,这个实验非常好，可以让想学汉语的学到新单词。加油,nearNative,3,chinese
+6,No,never,never,chinese,,0,Male,28,ChineseChinese,VERY NICE,basic,0,chinese
+7,Yes,1to5,both8,english,INDIA,2,Male,24,EnglishChinese,DONT LIKE IT,intermediate,1,chinese
+8,Yes,1,after8,english,urdu,0,Male,22,ChineseEnglish,,intermediate,4,chinese

@@ -1,0 +1,10 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,5plus,both8,english,汉语,1,Male,27,ChineseEnglish,,native,-1,chinese
+1,Yes,never,never,chinese,TAMIL,0,Male,25,ChineseChinese,,basic,0,chinese
+2,NA,never,never,chinese,,0,Male,,ChineseChinese,,other,0,chinese
+3,Yes,5plus,before8,chinese,普通話,2,Male,48,ChineseChinese,,native,3,chinese
+4,Yes,never,never,english,YES,0,Male,26,ChineseChinese,GOOD,nearNative,0,chinese
+5,No,1to5,never,english,,2,Male,,ChineseEnglish,,intermediate,0,chinese
+6,Yes,5plus,after8,english,MANDARIN,1,Female,60,ChineseEnglish,幾乎所有問的詞句都非常免強。譬如：木制的香蕉，方的長椅子，都一點意義都沒有。,intermediate,3,chinese
+7,No,-1,-1,-1,,-1,Male,,-1,,-1,-1,-1
+8,Yes,1,before8,chinese,,1,Female,27,ChineseEnglish,,nearNative,1,other
