@@ -18,10 +18,10 @@ d = d[d$lived=="both8",]
 # only 5plus years in Chinese-speaking country
 d = d[d$yearsLived=="5plus",]
 # only native Chinese speakers
-d = d[d$language!="Cantonese"&d$language!="",]
+d = d[d$language!="Cantonese"&d$language!=""&d$language!="中文（Chinese, both Manderin and Cantonese）",]
 
 
-length(unique(d$workerid)) # n=21
+length(unique(d$workerid)) # n=20
 
 summary(d)
 
@@ -37,6 +37,10 @@ d$noun = d$nounEnglish
 
 table(d$sense,d$condition)
 
+s = d[d$sense=="no",]
+s = subset(s, select=c("predicate1English","predicate2English","nounEnglish","condition"))
+s = s[!is.na(s$predicate1English),]
+write.csv(s,"check-for-weird.csv")
 
 #####
 ## duplicate observations by first predicate
