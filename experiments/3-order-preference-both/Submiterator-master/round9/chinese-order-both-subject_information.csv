@@ -1,0 +1,6 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,5plus,both8,english,粤语,1,Female,36,ChineseEnglish,,native,3,chinese
+1,Yes,5plus,both8,english,English,2,Female,24,ChineseEnglish,,nearNative,3,english
+2,Yes,5plus,both8,english,Cantonese,1,Female,52,ChineseEnglish,"Interesting survey, thanks!",native,3,chinese
+3,Yes,5plus,both8,english,Chinese,2,Female,33,ChineseEnglish,,intermediate,3,chinese
+4,Yes,5plus,both8,english,Chinese,1,Female,26,ChineseEnglish,这项实验的意义是什么,native,4,chinese

@@ -5,12 +5,12 @@ library(dplyr)
 library(lmerTest)
 source("../results/helpers.R")
 
-setwd("~/git/chinese_adjectives/experiments/2-order-preference-expanded/Submiterator-master")
+setwd("~/git/chinese_adjectives/experiments/3-order-preference-both/Submiterator-master")
 
-num_round_dirs = 15
+num_round_dirs = 13
 df1 = do.call(rbind, lapply(1:num_round_dirs, function(i) {
   return (read.csv(paste(
-    '../Submiterator-master/round', i, '/chinese-order3.csv', sep='')) %>% 
+    '../Submiterator-master/round', i+2, '/chinese-order-both.csv', sep='')) %>% 
       mutate(workerid = (workerid + (i-1)*9)))}))
 
 d = subset(df1, select=c("workerid","nounEnglish","gender","nounclass","slide_number", "predicate1English", "predicate2English", "class1","class2","response","sense","condition","language","age","assess","education","lived","proficiency","homeLanguage","yearsLived","outsideLanguage"))
@@ -20,7 +20,7 @@ d = d[d$lived=="both8",]
 # only 5plus years in Chinese-speaking country
 d = d[d$yearsLived=="5plus",]
 # only native Chinese speakers
-d = d[d$language!="Cantonese"&d$language!=""&d$language!="中文（Chinese, both Manderin and Cantonese）",]
+d = d[d$language!="Cantonese"&d$language!="English"&d$language!="上海话"&d$language!="广东话"&d$language!="粤语",]
 
 
 length(unique(d$workerid)) # n=20
@@ -37,7 +37,6 @@ d$noun = d$nounEnglish
 ## sense analysis
 #####
 
-table(d$sense,d$condition)
 
 s = d[d$sense=="no",]
 s = subset(s, select=c("predicate1English","predicate2English","nounEnglish","condition"))

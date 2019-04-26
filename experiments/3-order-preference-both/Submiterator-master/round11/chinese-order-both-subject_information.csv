@@ -1,0 +1,4 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,NA,never,never,chinese,dhfgh,0,Female,30,ChineseEnglish,,basic,1,chinese
+1,Yes,-1,both8,english,中文,1,Female,23,ChineseChinese,,native,-1,-1
+2,Yes,1,before8,english,chinese,2,Male,23,ChineseEnglish,,advanced,3,english
