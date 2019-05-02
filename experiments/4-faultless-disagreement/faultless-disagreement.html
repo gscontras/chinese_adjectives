@@ -1,0 +1,209 @@
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <title>Corpus-based faultless disagreement</title>
+
+    <!--JS-->
+
+    <!-- external general utilities -->
+    <script src="../_shared/js/jquery-1.11.1.min.js "></script>
+    <script src="../_shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../_shared/js/underscore-min.js"></script>
+    <!-- if you want to draw stuff: -->
+    <script src="../_shared/js/raphael-min.js"></script>
+
+    <!-- cocolab experiment logic -->
+    <script src="../_shared/js/exp-V2.js"></script>
+    <script src="../_shared/js/stream-V2.js"></script>
+
+    <!-- cocolab general utilities -->
+    <script src="../_shared/js/mmturkey.js "></script>
+    <script src="../_shared/js/browserCheck.js"></script>
+    <script src="../_shared/js/utils.js"></script>
+    <!-- if you want to draw cute creatures (depends on raphael): -->
+    <!-- <script src="../_shared/js/ecosystem.js"></script> -->
+
+    <!-- experiment specific helper functions -->
+    <!-- <script src="js/local-utils.js"></script> -->
+
+    <!--CSS-->
+    <link href="../_shared/full-projects/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../_shared/css/meaninglab-style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/local-style.css" rel="stylesheet" type="text/css"/>
+
+    <!-- experiment file -->
+    <script src="js/faultless-disagreement.js"></script>
+    <script src="expt-files/corpus.js"></script>
+    <script src="expt-files/names.js"></script>
+
+    <!-- check unique turkers -->
+    <script src="../_shared/js/uniqueturker.js"></script>
+    
+</head>
+
+<body onload="init();">
+  <noscript>This task requires JavaScript.</noscript>
+
+  <div class="slide" id="i0" >
+    <img src="../_shared/images/meaningLab.png" alt="UCI meaning lab" id="meaningLabLogo"></img>
+    <p id="instruct-text">该HIT涉及解释中文句子。任务大约需要六分钟。请认真完成。谢谢!</p>
+    <button id="start_button" type="button">开始实验</button>
+    <p id="legal">法律信息：通过回答以下问题，您正在参与一项由加州大学欧文分校(University of California, Irvine)认知科学家进行的研究。如果您对本研究有任何疑问，请通过<a href="mailto://g.scontras@uci.edu">g.scontras@uci.edu</a>与Greg Scontras联系。您必须年满18岁才能参加。您参与这项研究是自愿的。您可以拒绝回答以下任何或所有问题。您可以在任何时间拒绝进一步参与研究，没有不良后果。本问卷采用匿名填写; 请您参与研究的研究人员将不会收到您的任何个人信息。</p>
+  </div>
+
+  <div class="slide" id="instructions1">
+    <h3>操作说明</h3>
+    <p> 你将看到26个短对话。在每次对话中，发言者会否定一个对象。你的任务是决定是否一个发言者一定是错误的，或是否两个发言者都是正确的。</p>
+    <!-- <p class="instruction_condition">{{}}</p> -->
+    <button onclick="_s.button()">继续</button>
+  </div>
+
+  <div class="slide" id="multi_slider">
+
+  <p class="name_said"></p>
+
+    <p>考虑下列情景:</p>
+
+<!--    <p><span class = "woman">{{}}</span> sold a <span class="noun">{{}}</span> in her store.</p>
+
+    <p><span class="man1">{{}}</span> entered <span class = "woman">{{}}</span>'s store, noticed the <span class="noun">{{}}</span>, and said:</p>
+    -->
+    <p><span class="man1">{{}}</span>和<span class="man2">{{}}</span>看到同一个<span class="noun">{{}}</span>。</p> 
+    <p><span class="man1">{{}}</span>说：<b><span class="utterance1">{{}}</span></b></p>
+
+    <p><span class="man2">{{}}</span>回答：<b><span class="utterance2">{{}}</span></b></p>
+
+<!--     <p>Do the statements make sense?</p>
+    <label><input type="radio"  name="sense" value="Yes"/>Yes</label>
+    <label><input type="radio"  name="sense" value="No"/>No</label>
+    </br></br>
+ -->
+    <p><span class="man1">{{}}</span>和<span class="man2">{{}}</span>可以都是正确的吗？</p>
+    <table id="multi_slider_table" class="slider_table">
+<!--      <tr><td class="left">No, somebody must be wrong.</td><td class="right">Yes, it's a matter of opinion.</td></tr> -->
+      <tr><td>不是，有人一定是错误的。</td><td><div id="slider0" class="slider"></div></td><td>是的，这是一个意见问题。</td></tr>
+    </table>
+
+    <button onclick="_s.button()">继续</button>
+    <div class="err">请调整滑块位置以继续。</div>
+  </div>
+
+  <div class="slide"  id="subj_info">
+    <div class="long_form">
+      <div class="subj_info_title">其他信息</div>
+      <p class="info">回答这些问题是非强制的，但会帮助我们了解你的答案</p>
+      <p>你阅读了操作说明并且认为你正确的完成了HIT?</p>
+      <label><input type="radio"  name="assess" value="No"/>不是</label>
+      <label><input type="radio"  name="assess" value="Yes"/>是的</label>
+      <label><input type="radio"  name="assess" value="Confused"/>我不确定</label>
+
+      <p>性别:
+        <select id="gender">
+          <label><option value=""/></label>
+          <label><option value="Male"/>男</label>
+          <label><option value="Female"/>女</label>
+          <label><option value="Other"/>其他</label>
+        </select>
+      </p>
+
+      <p>年龄: <input type="text" id="age"/></p>
+
+      <p>受教育程度:
+        <select id="education">
+          <label><option value="-1"/></label>
+          <label><option value="0"/>高中阶段</label>
+          <label><option value="1"/>高中毕业</label>
+          <label><option value="2"/>大学阶段</label>
+          <label><option value="3"/>大学毕业</label>
+          <label><option value="4"/>持有更高学位</label>
+        </select>
+      </p>
+
+      <p>母语: <input type="text" id="language"/></p>
+      <label>(你儿时在家使用的语言)</label>
+
+      <p>你喜欢这个HIT吗?</p>
+      <select id="enjoyment">
+        <label><option value="-1"></option></label>
+        <label><option value="0">低于平均HIT</option></label>
+        <label><option value="1" >等于平均HIT</option></label>
+        <label><option value="2">高于平均HIT</option></label>
+      </select>
+
+      <p>下列哪个选项最好的描述了你?</p>
+      <select id="describe">
+        <label><option value="-1"></option></label>
+        <label><option value="ChineseChinese">我学习汉语作为我的母语，汉语也是我主要使用的语言</option></label>
+        <label><option value="ChineseEnglish" >我把中文作为我的母语，但现在英语是我主要使用的语言</option></label>
+        <label><option value="EnglishChinese">我把英语作为母语，后来又学了汉语</option></label>
+        <label><option value="other">我的母语是英语或汉语以外的语言，后来我又学习了汉语</option></label>
+      </select>
+
+      <p>你在讲汉语的国家居住过吗?</p>
+      <select id="lived">
+        <label><option value="-1"></option></label>
+        <label><option value="never">没有，我从未在讲汉语的国家生活过</option></label>
+        <label><option value="both8" >是的，在8岁之前和之后都是</option></label>
+        <label><option value="before8">是的，8岁以前</option></label>
+        <label><option value="after8">是的，8岁以后</option></label>
+      </select>
+
+      <p>你在一个讲汉语的国家生活了多少年?</p>
+      <select id="yearsLived">
+        <label><option value="-1"></option></label>
+        <label><option value="never">我从未在讲汉语的国家生活过</option></label>
+        <label><option value="1" >1年一下</option></label>
+        <label><option value="1to5">1-5年</option></label>
+        <label><option value="5plus">5年以上</option></label>
+      </select>
+
+      <p>你在家里最常用的语言是什么?</p>
+      <select id="homeLanguage">
+        <label><option value="-1"></option></label>
+        <label><option value="chinese">汉语</option></label>
+        <label><option value="english" >英语</option></label>
+        <label><option value="other">其他</option></label>
+      </select>
+
+      <p>你在家以外的地方最常使用的语言是什么?</p>
+      <select id="outsideLanguage">
+        <label><option value="-1"></option></label>
+        <label><option value="chinese">汉语</option></label>
+        <label><option value="english" >英语</option></label>
+        <label><option value="other">其他</option></label>
+      </select>
+
+      <p>你认为你的中文水平如何?</p>
+      <select id="proficiency">
+        <label><option value="-1"></option></label>
+        <label><option value="basic">初级</option></label>
+        <label><option value="intermediate" >中级</option></label>
+        <label><option value="advanced">高级</option></label>
+        <label><option value="nearNative">接近母语级别</option></label>
+        <label><option value="native">母语级别</option></label>
+        <label><option value="other">我希望不回答</option></label>
+      </select>
+
+      <p>我们期待你对本次试验的任何评价。请在这里填写:</p>
+      <textarea id="comments" rows="3" cols="50"></textarea>
+      <br/>
+      <button onclick="_s.submit()">提交</button>
+    </div>
+  </div>
+
+  <div id="thanks" class="slide js" >
+    <p  class="big">谢谢参与!</p>
+  </div>
+
+  <div class="progress">
+    <span>进度:</span>
+    <div class="bar-wrapper">
+      <div class="bar" width="0%">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

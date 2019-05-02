@@ -2,3 +2,7 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 0,NA,never,never,chinese,dhfgh,0,Female,30,ChineseEnglish,,basic,1,chinese
 1,Yes,-1,both8,english,中文,1,Female,23,ChineseChinese,,native,-1,-1
 2,Yes,1,before8,english,chinese,2,Male,23,ChineseEnglish,,advanced,3,english
+3,Yes,5plus,before8,english,中文,0,Female,36,ChineseEnglish,,native,3,english
+4,Yes,5plus,before8,other,中文,2,Female,25,EnglishChinese,,nearNative,3,english
+5,Yes,5plus,before8,chinese,Chinese,2,Male,21,ChineseChinese,,native,2,chinese
+6,Yes,5plus,never,chinese,,2,Female,A,ChineseEnglish,,basic,3,chinese

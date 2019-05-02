@@ -2,3 +2,6 @@ workerid,OS,screenH,screenW,Browser
 0,Windows,900,1600,Chrome
 1,Mac,900,1440,Safari
 2,Windows,1080,2560,Chrome
+3,Windows,768,1366,Chrome
+4,Windows,1080,1920,Chrome
+5,Windows,768,1366,Chrome
