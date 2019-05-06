@@ -6,3 +6,4 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 4,Yes,5plus,before8,other,中文,2,Female,25,EnglishChinese,,nearNative,3,english
 5,Yes,5plus,before8,chinese,Chinese,2,Male,21,ChineseChinese,,native,2,chinese
 6,Yes,5plus,never,chinese,,2,Female,A,ChineseEnglish,,basic,3,chinese
+7,Yes,5plus,both8,english,Chinese,0,Female,22,ChineseEnglish,"I think all the phrases sound strange in some ways. I would recommend you guys delete the second ""的"" in each phrase. For example, ""新鲜的红苹果"" sounds much normal than ""新鲜的红的苹果"". Good luck! ",native,4,chinese

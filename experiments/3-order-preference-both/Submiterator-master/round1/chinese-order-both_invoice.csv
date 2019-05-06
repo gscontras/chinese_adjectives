@@ -5,6 +5,7 @@ Sun Apr 21 19:15:13 PDT 2019,A12R4UCDPSXGHH,0.4
 Sat Apr 27 19:39:07 PDT 2019,A2C325ZSTC464I,0.4
 Sat Apr 27 21:37:19 PDT 2019,A1EMHC5WK14GRU,0.4
 Wed May 01 15:12:48 PDT 2019,A104JVDCY72Q0F,0.4
-,total paid to workers:,=SUM(c2:c7)
-,40% paid to Amazon:,=.4*c8
-,total:,=SUM(c8:c9
+Mon May 06 11:51:20 PDT 2019,A10K3DKAT3HYEG,0.4
+,total paid to workers:,=SUM(c2:c8)
+,40% paid to Amazon:,=.4*c9
+,total:,=SUM(c9:c10
