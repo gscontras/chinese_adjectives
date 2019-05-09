@@ -4,3 +4,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 2,Yes,5plus,before8,english,Chinese,2,Male,30,ChineseEnglish,,advanced,3,chinese
 3,Yes,5plus,both8,chinese,Chinese,0,Female,22,ChineseEnglish,,native,4,chinese
 4,Yes,5plus,both8,english,Chinese,1,Male,37,ChineseEnglish,,native,4,chinese
+5,Yes,1to5,never,english,,1,Male,30,ChineseEnglish,,advanced,2,chinese
+6,Yes,1,both8,chinese,United States,1,Female,asdf,ChineseChinese,asdf,advanced,2,chinese
