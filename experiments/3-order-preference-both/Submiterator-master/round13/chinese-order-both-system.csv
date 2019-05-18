@@ -3,3 +3,5 @@ workerid,OS,screenH,screenW,Browser
 1,Windows,1080,1920,Chrome
 2,Windows,960,1707,Chrome
 3,Mac,900,1440,Chrome
+4,Mac,900,1440,Safari
+5,Linux,975,576,Firefox

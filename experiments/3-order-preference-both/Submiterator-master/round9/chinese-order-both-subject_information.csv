@@ -7,3 +7,4 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 5,Yes,1,both8,english,English,0,Female,30,ChineseEnglish,,intermediate,3,-1
 6,No,1to5,before8,english,,-1,Female,,ChineseEnglish,,nearNative,3,english
 7,Yes,1,before8,english,ENGLISH,1,Male,30,EnglishChinese,,nearNative,3,chinese
+8,Yes,1to5,before8,other,ENGLISH,2,Female,27,EnglishChinese,N/A,nearNative,3,english

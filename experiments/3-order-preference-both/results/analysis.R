@@ -23,7 +23,7 @@ d = d[d$yearsLived=="5plus",]
 d = d[d$language!="Cantonese"&d$language!="English"&d$language!="上海话"&d$language!="广东话"&d$language!="粤语",]
 
 
-length(unique(d$workerid)) # n=25
+length(unique(d$workerid)) # n=32
 
 summary(d)
 
@@ -89,7 +89,7 @@ ggplot(data=class_s,aes(x=reorder(correctclass,-correctresponse,mean),y=correctr
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=reorder(correctclass,-correctresponse,mean), width=0.1))+
   geom_hline(yintercept=0.5,linetype="dashed") + 
   xlab("\nadjective class")+
-  ylab("preferred\ndistance from noun\n")+
+  ylab("preferred distance from noun\n")+
   ylim(0,1)+
   #labs("order\npreference")+
   theme_bw()#+

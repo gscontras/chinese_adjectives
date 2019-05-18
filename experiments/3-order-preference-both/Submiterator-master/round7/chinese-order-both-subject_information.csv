@@ -3,3 +3,6 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 1,Yes,5plus,before8,english,中文,1,Female,25,ChineseEnglish,,native,3,chinese
 2,No,1,never,chinese,english,0,Male,31,ChineseEnglish,,intermediate,1,chinese
 3,NA,1,before8,chinese,,2,Female,,-1,,advanced,1,chinese
+4,Yes,5plus,both8,english,,1,Female,57,ChineseEnglish,,nearNative,4,chinese
+5,Yes,5plus,before8,english,粤语,2,Female,23,ChineseEnglish,,native,3,chinese
+6,Yes,5plus,both8,english,中文,2,Female,28,ChineseEnglish,其实这些所有的选项都很不自然，中文里几个形容词连续时，一般只加一个的。,native,4,english

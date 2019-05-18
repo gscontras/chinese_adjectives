@@ -1,3 +1,4 @@
 workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
 0,Yes,never,never,english,United States,1,Female,23,EnglishChinese,,intermediate,3,chinese
 1,Yes,5plus,both8,english,中文,2,Female,30,ChineseEnglish,,native,3,chinese
+2,Yes,1to5,both8,english,United States,1,Male,Gods not dead,ChineseEnglish,Jesus saves,advanced,1,english

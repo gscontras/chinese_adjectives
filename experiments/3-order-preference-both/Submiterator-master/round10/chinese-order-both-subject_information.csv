@@ -3,3 +3,12 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 1,Yes,-1,-1,-1,,-1,,,-1,,-1,-1,-1
 2,Yes,5plus,both8,english,汉语,2,Female,,ChineseChinese,词语中去掉“的”可能听上去更自然。,native,2,chinese
 3,Yes,5plus,both8,english,普通话,1,Female,25,ChineseChinese,,native,3,chinese
+4,Yes,never,never,chinese,United States,1,Female,57,ChineseEnglish,,advanced,3,chinese
+5,Yes,1to5,before8,english,us,2,Male,bill,EnglishChinese,,nearNative,2,other
+6,No,never,never,chinese,United States,1,Male,1,ChineseChinese,1,basic,0,chinese
+7,No,1,both8,other,YES,1,Male,YES,ChineseEnglish,"作者：Hugsy
+链接：https://www.zhihu.com/question/63612768/answer/343419078
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+原以为学深度学习需要机器学习相关基础，最开始是在网易公开课上看了几集Andrew Ng最早的斯坦福机器学习课，由于视频的清晰度以及课程的深度等问题弃了。后面发现重制的机器学习课程，就到Coursera平台上准备开始学。又发现这门深度学习系列课程不需要机器学习相关基础，于是就入坑了。刚好前面已经学过了高数、线性代数、概率论，虽然都学得不怎么样，但这个系列的课程压根就没涉及到多少数学知识，贯穿整个课程的就是些简单的求导、矩阵乘法以及条件概率，且这些东西还在课程的开始进行了讲解。涉及到的最广的数学知识也就是在一个optional视频里用极大似然估计推导了下交叉熵成本函数。课程视频中，对一些知识点的讲解都是用举例方法，通俗易懂。后面的CNN及序列模型课程中，还对大量有名的论文作了大致的讲解。课后的编程作业都挺不错的，只要有一点Python基础，加上真正理解了视频的内容，补充几行代码完全不在话下。从教你用Numpy一步步写DNN的各个模块，到后面直接用Tensorflow、Keras框架建立模型，对于初学者来说还是挺友好的。虽然有人吐槽最后序列模型的编程作业里出现了几处公式书写错误。学习过程中，都是将一周的视频内容过一遍，初步理解后再将每个视频精细地看一遍，同时翻译整理出笔记，对不太懂的地方也查阅了一些资料辅助理解。用markdown记笔记时，公式的编辑特别费时间，这样整理一篇笔记差不多就得花上两三天的时间。献上整个系列的课程笔记：",advanced,2,chinese

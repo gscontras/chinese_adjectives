@@ -2,3 +2,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 0,Yes,5plus,both8,-1,Chinese,1,Female,45,ChineseEnglish,It&quotechars fine on,native,3,chinese
 1,Yes,1,both8,english,上海话,1,Female,22,ChineseEnglish,,advanced,3,other
 2,Yes,5plus,both8,english,中文,2,Female,27,ChineseEnglish,"All the questions are a little bit odd to me because normally Chinese does not use sentences like 长的黄的椅子 but 长的黄椅子 or 黄的长椅子。Some questions like 你在家里最常用的语言是什么? appear to be a translation from English, because I think usually I would say 在家里你最常用的语言是什么? Grammatically, they are correct Chinese sentences, but they appear odd...",native,4,chinese
+3,Yes,5plus,before8,english,普通話,1,Female,30,ChineseEnglish,,native,3,chinese
+4,Yes,-1,-1,-1,中文,2,Female,27,ChineseChinese,,-1,3,-1

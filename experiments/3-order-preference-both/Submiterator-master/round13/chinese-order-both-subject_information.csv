@@ -3,3 +3,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 1,Yes,5plus,both8,english,广东话,1,Male,26,ChineseEnglish,,other,3,other
 2,Yes,5plus,both8,english,汉语,1,Male,35,ChineseEnglish,,native,4,chinese
 3,Yes,5plus,both8,english,中文,2,Male,27,ChineseEnglish,没有,native,4,chinese
+4,Yes,5plus,after8,english,中文,1,Female,21,ChineseChinese,,native,2,chinese
+5,NA,1to5,-1,chinese,Chinese,-1,Male,31,-1,非常好的调查我非常喜欢它。,advanced,-1,chinese

@@ -6,3 +6,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 4,Confused,5plus,both8,english,汉语,1,Female,35,ChineseEnglish,,native,3,chinese
 5,Confused,1,both8,chinese,g,1,Female,g,ChineseChinese,g,advanced,3,other
 6,Yes,5plus,before8,other,CHINESE,2,Female,47,ChineseChinese,,nearNative,0,chinese
+7,Yes,never,never,english,,0,Female,37,ChineseEnglish,這是一個非常巧妙的調查,basic,3,english
+8,Yes,5plus,both8,english,中文,2,Female,30,ChineseEnglish,,native,4,english
