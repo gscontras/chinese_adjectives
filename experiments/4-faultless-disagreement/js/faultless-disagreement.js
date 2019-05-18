@@ -1,7 +1,3 @@
-
-
-
-
 function make_slides(f) {
   var   slides = {};
 
@@ -155,6 +151,16 @@ function make_slides(f) {
 
 /// init ///
 function init() {
+  repeatWorker = false;
+  (function(){
+    var ut_id = "chinese-faultless-18052019";
+    if (UTWorkerLimitReached(ut_id)) {
+      $('.slide').empty();
+      repeatWorker = true;
+      alert("您已达到完成这项程序HIT允许的最多次数。请点击\"Return HIT\"以免影响您的通过率。You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.");
+    }
+  })();
+
   exp.trials = [];
   exp.catch_trials = [];
   exp.instruction = _.sample(["instruction1","instruction2"]);

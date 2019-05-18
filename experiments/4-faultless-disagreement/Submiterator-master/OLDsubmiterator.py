@@ -1,6 +1,89 @@
 #!/usr/bin/env python
 
-import os, json, re, csv, argparse
+import csv, codecs, cStringIO
+import os, json, re, argparse
+
+import sys
+reload(sys) # GCS added to handle special characters
+sys.setdefaultencoding('utf-8') # GCS added to handle special characters
+csv.field_size_limit(sys.maxsize)
+
+encoding = "utf-8"
+
+import csv, codecs, cStringIO
+
+class UTF8Recoder:
+    """
+    Iterator that reads an encoded stream and reencodes the input to UTF-8
+    """
+    def __init__(self, f, encoding):
+        self.reader = codecs.getreader(encoding)(f)
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        return self.reader.next().encode("utf-8")
+
+class UnicodeReader:
+    """
+    A CSV reader which will iterate over lines in the CSV file "f",
+    which is encoded in the given encoding.
+    """
+
+    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
+        f = UTF8Recoder(f, encoding)
+        self.reader = csv.reader(f, dialect=dialect, **kwds)
+
+    def next(self):
+        row = self.reader.next()
+        return [unicode(s, "utf-8") for s in row]
+
+    def __iter__(self):
+        return self
+
+class UnicodeWriter:
+    """
+    A CSV writer which will write rows to CSV file "f",
+    which is encoded in the given encoding.
+    """
+
+    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
+        # Redirect output to a queue
+        self.queue = cStringIO.StringIO()
+        self.writer = csv.writer(self.queue, dialect=dialect, **kwds)
+        self.stream = f
+        self.encoder = codecs.getincrementalencoder(encoding)()
+
+    def writerow(self, row):
+        self.writer.writerow([s.encode("utf-8") for s in row])
+        # Fetch UTF-8 output from the queue ...
+        data = self.queue.getvalue()
+        data = data.decode("utf-8")
+        # ... and reencode it into the target encoding
+        data = self.encoder.encode(data)
+        # write to the target stream
+        self.stream.write(data)
+        # empty queue
+        self.queue.truncate(0)
+
+    def writerows(self, rows):
+        for row in rows:
+            self.writerow(row)
+
+def submiterator_stringify(something):
+  if type(something) is int or type(something) is float or type(something) is list:
+    return str(something).encode('utf-8')
+  else:
+    return something.encode("utf-8")
+
+def write_csv(data, filename, delimiter=','):
+    fieldnames = data[0].keys()
+    csvfile = open(filename, 'wb')
+    csvwriter = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=delimiter)
+    csvwriter.writeheader()
+    csvwriter.writerows(data)
+    csvfile.close()
 
 def main():
     parser = argparse.ArgumentParser(description='Interface with MTurk.')
@@ -13,25 +96,6 @@ def main():
         "experiment you want to work with. each experiment has a unique label. " +
         "this will be the beginning of the name of the config file (everything " +
         "before the dot). [label].config.")
-    # parser.add_argument("--live", dest='is_live', action='store_const',
-    #   const=True, default=False, help="interface with live site (defaults to sandbox)")
-    # parser.add_argument("--posthit", help="post a hit to mturk. requires label")
-    # parser.add_argument("--getresults", help="get results from mturk. requires label")
-    # parser.add_argument("--reformat")
-    # parser.add_argument("--preparefiles")
-    # parser.add_argument("--anonymize")
-    # parser.add_argument('integers', metavar='N', type=int, nargs='+',
-    #                    help='an integer for the accumulator')
-    # parser.add_argument('--sum', dest='accumulate', action='store_const',
-    #                    const=sum, default=max,
-    #                    help='sum the integers (default: find the max)')
-
-    # parser = argparse.ArgumentParser(description='Interface with MTurk.')
-    # parser.add_argument('integers', metavar='N', type=int, nargs='+',
-    #                    help='an integer for the accumulator')
-    # parser.add_argument('--sum', dest='accumulate', action='store_const',
-    #                    const=sum, default=max,
-    #                    help='sum the integers (default: find the max)')
 
     args = parser.parse_args()
     # print args.accumulate(args.integers)
@@ -46,10 +110,12 @@ def main():
         elif subcommand == "getresults":
             getresults(label)
             anonymize(label + ".results")
+            make_invoice(label)
         elif subcommand == "reformat":
             try:
                 try:
                     reformat(label + ".results")
+                    make_invoice(label)
                 except IOError:
                     reformat(label + "_anonymized.results")
             except IOError:
@@ -141,22 +207,122 @@ def prepare(nameofexperimentfiles, output_dir=""):
     conditions = dict["conditions"]
     conditionlist = conditions.split(",")
     for x in conditionlist:
-        input.write(str(num) + " " + x + " \n")
+        input.write(submiterator_stringify(num) + " " + x + " \n")
         num = num + 1
     input.close()
+
+def posthit(label):
+    os.system(
+        """
+        HERE=`pwd`
+        cd $MTURK_CMD_HOME/bin
+
+        NAME_OF_EXPERIMENT_FILES=""" + label + """
+        label=$HERE/$NAME_OF_EXPERIMENT_FILES
+        ./loadHITs.sh -label $label -input $label.input -question $label.question -properties $label.properties -maxhits 1
+        """
+        )
+
+def getresults(label):
+    os.system("""
+        HERE=`pwd`
+        cd $MTURK_CMD_HOME/bin
+
+        NAME_OF_EXPERIMENT_FILES=""" + label + """
+        label=$HERE/$NAME_OF_EXPERIMENT_FILES
+        ./getResults.sh -successfile $label.success -outputfile $label.results
+        """)
+
+def anonymize(original_data_filename):
+    workers = {}
+    def symb(workerid):
+        if workerid in workers:
+            return workers[workerid]
+        else:
+            id_number = str(len(workers)).decode('utf-8')
+            workers[workerid] = id_number
+            return id_number
+
+    new_data_filename = original_data_filename.split(".results")[0] + "_anonymized.results"
+    new_rows = []
+
+    csvfile = open(original_data_filename, 'rb')
+    csvreader = csv.DictReader(csvfile, delimiter='\t')
+    for row in csvreader:
+        trialdata = json.loads(row['Answer.trials'])
+        trialstring = json.dumps(trialdata)
+        row['Answer.trials'] = trialstring
+        workerid = row['workerid']
+        row['workerid'] = symb(workerid)
+        new_rows.append(row)
+    csvfile.close()
+
+    write_csv(new_rows, new_data_filename, delimiter='\t')
+
+    print workers
+
+def make_invoice(output_file_label):
+
+  mturk_data_file = output_file_label + ".results"
+
+  def clean_text(text):
+    return text
+
+  def write_2_by_2(data, filename):
+    with open(filename, 'wb') as csvfile:
+      w = UnicodeWriter(csvfile)
+      w.writerows(data)
+      # w = open(filename, "w")
+      # w.write("\n".join(map(lambda x: sep.join(x), data)))
+      # w.close()
+
+  workerids_for_invoice = []
+  dates_for_invoice = []
+  prices_for_invoice = []
+
+  with open(mturk_data_file, 'rb') as csvfile:
+    header_labels = []
+    header = True
+    mturk_reader = UnicodeReader(csvfile, delimiter='\t', quotechar='"', encoding="utf-8")
+    for row in mturk_reader:
+      if header:
+        header = False
+        header_labels = row
+      else:
+        for i in range(len(row)):
+          elem = re.sub("'", "&quotechar", row[i])
+          label = header_labels[i]
+          if label == "workerid":
+            workerids_for_invoice.append(elem)
+          elif label == "reward":
+            prices_for_invoice.append(float(elem[1:]))
+          elif label == "assignmentsubmittime":
+            dates_for_invoice.append(elem)
+
+  rows = [["date", "workerid", "amount"]]
+  for i in range(len(workerids_for_invoice)):
+    rows.append([dates_for_invoice[i], workerids_for_invoice[i], submiterator_stringify(prices_for_invoice[i])])
+  rows.append(["", "total paid to workers:", "=SUM(c2:c" + submiterator_stringify(len(workerids_for_invoice) + 1) + ")"])
+  rows.append(["", "40% paid to Amazon:", "=.4*c" + submiterator_stringify(len(workerids_for_invoice) + 2)])
+  rows.append(["", "total:", "=SUM(c" + submiterator_stringify(len(workerids_for_invoice) + 2) + ":c" + submiterator_stringify(len(workerids_for_invoice) + 3)])
+  write_2_by_2(rows, output_file_label + "_invoice.csv")
 
 def reformat(mturk_data_file, workers={}):
 
   mturk_tag = mturk_data_file[:-8]
   output_data_file_label = mturk_tag
 
+
   def clean_text(text):
     return text
 
-  def write_2_by_2(data, filename, sep="\t"):
-    w = open(filename, "w")
-    w.write("\n".join(map(lambda x: sep.join(x), data)))
-    w.close()
+  def write_2_by_2(data, filename):
+    with open(filename, 'wb') as csvfile:
+      w = UnicodeWriter(csvfile)
+      w.writerows(data)
+      # w = open(filename, "w")
+      # w.write("\n".join(map(lambda x: sep.join(x), data)))
+      # w.close()
 
   # workers = json.loads(re.sub("'", '"', re.sub(" u'", " '", sys.argv[2])))
 
@@ -164,7 +330,7 @@ def reformat(mturk_data_file, workers={}):
     if workerid in workers:
       return workers[workerid]
     else:
-      id_number = str(len(workers))
+      id_number = submiterator_stringify(len(workers))
       workers[workerid] = id_number
       return id_number
 
@@ -173,7 +339,7 @@ def reformat(mturk_data_file, workers={}):
     with open(mturk_data_file, 'rb') as csvfile:
       header_labels = []
       header = True
-      mturk_reader = csv.reader(csvfile, delimiter='\t', quotechar='"')
+      mturk_reader = UnicodeReader(csvfile, delimiter='\t', quotechar='"', encoding=encoding)
       for row in mturk_reader:
         if header:
           header = False
@@ -205,7 +371,7 @@ def reformat(mturk_data_file, workers={}):
     with open(mturk_data_file, 'rb') as csvfile:
       header_labels = []
       header = True
-      mturk_reader = csv.reader(csvfile, delimiter='\t', quotechar='"')
+      mturk_reader = UnicodeReader(csvfile, delimiter='\t', quotechar='"', encoding="utf-8")
       for row in mturk_reader:
         if header:
           header = False
@@ -227,7 +393,7 @@ def reformat(mturk_data_file, workers={}):
                 for trial in trials:
                   for key in new_column_labels:
                     if key in trial.keys():
-                      trial_level_data[key].append(str(trial[key]))
+                      trial_level_data[key].append(submiterator_stringify(trial[key]))
                     else:
                       trial_level_data[key].append("NA")
               else:
@@ -237,14 +403,22 @@ def reformat(mturk_data_file, workers={}):
                   data = json.loads(elem)
                 for key in new_column_labels:
                   if key in data.keys():
-                    subject_level_data[key] = str(data[key])
+                    subject_level_data[key] = submiterator_stringify(data[key])
                   else:
                     subject_level_data[key] = "NA"
             elif label == "workerid":
+              # if data_type == "subject_information":
+              #   workerids_for_invoice.append(elem)
               elem = symb(elem)
               subject_level_data["workerid"] = elem
             else:
-              subject_level_data[label] = str(elem)
+              # if label == "reward":
+              #   if data_type == "subject_information":
+              #     prices_for_invoice.append(float(elem[1:]))
+              # elif label == "assignmentsubmittime":
+              #   if data_type == "subject_information":
+              #     dates_for_invoice.append(elem)
+              subject_level_data[label] = submiterator_stringify(elem)
           if len(trial_level_data.keys()) > 0:
             ntrials = len(trial_level_data[trial_level_data.keys()[0]])
           else:
@@ -268,7 +442,8 @@ def reformat(mturk_data_file, workers={}):
             for key in new_column_labels:
               output_row.append(subject_level_data[key])
             output_rows.append(output_row)
-    write_2_by_2(output_rows, output_data_file_label + "-" + data_type + ".tsv")
+    
+    write_2_by_2(output_rows, output_data_file_label + "-" + data_type + ".csv")
     return [[clean_text(elem) for elem in row] for row in output_rows]
 
 
@@ -298,64 +473,11 @@ def reformat(mturk_data_file, workers={}):
         for trial in small_trials:
           big_row = trial + small_subject_information + small_system + small_mturk
           big_rows.append(big_row)
-    write_2_by_2(big_rows, output_data_file_label + ".tsv")
+    write_2_by_2(big_rows, output_data_file_label + ".csv")
 
   make_full_tsv()
 
   print workers
-
-def anonymize(original_data_filename):
-    workers = {}
-    def symb(workerid):
-        if workerid in workers:
-            return workers[workerid]
-        else:
-            id_number = str(len(workers))
-            workers[workerid] = id_number
-            return id_number
-
-    new_data_filename = original_data_filename.split(".results")[0] + "_anonymized.results"
-    new_rows = []
-
-    with open(original_data_filename, "rb") as csvfile:
-        csvreader = csv.reader(csvfile, delimiter="\t")
-        is_header = True
-        workerIndex = 0
-        for row in csvreader:
-            if is_header:
-                workerIndex = row.index("workerid")
-                is_header = False
-            else:
-                row[workerIndex] = symb(row[workerIndex])
-            new_rows.append("\t".join(row))
-
-    w = open(new_data_filename, "w")
-    w.write("\n".join(new_rows))
-    w.close()
-
-    print workers
-
-def posthit(label):
-    os.system(
-        """
-        HERE=`pwd`
-        cd $MTURK_CMD_HOME/bin
-
-        NAME_OF_EXPERIMENT_FILES=""" + label + """
-        label=$HERE/$NAME_OF_EXPERIMENT_FILES
-        ./loadHITs.sh -label $label -input $label.input -question $label.question -properties $label.properties -maxhits 1
-        """
-        )
-
-def getresults(label):
-    os.system("""
-        HERE=`pwd`
-        cd $MTURK_CMD_HOME/bin
-
-        NAME_OF_EXPERIMENT_FILES=""" + label + """
-        label=$HERE/$NAME_OF_EXPERIMENT_FILES
-        ./getResults.sh -successfile $label.success -outputfile $label.results
-        """)
 
 # submiterator --preparefiles label [label ...]
 
