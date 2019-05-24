@@ -1,0 +1,6 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,5plus,both8,english,Chinese,1,Female,45,ChineseEnglish,Good luck for your study!,native,4,chinese
+1,Yes,5plus,both8,chinese,中文,2,Female,34,ChineseEnglish,,native,4,chinese
+2,Yes,5plus,both8,english,中文,2,Male,27,ChineseChinese,请设置成必须要回答问题后才能继续下一个问题,native,4,chinese
+3,Yes,1to5,both8,chinese,English,0,Male,32,ChineseEnglish,,intermediate,3,chinese
+4,Yes,1,before8,other,yung,0,Male,ho,ChineseEnglish,,intermediate,1,chinese

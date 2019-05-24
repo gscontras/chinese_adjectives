@@ -1,0 +1,7 @@
+workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,describe,comments,proficiency,education,homeLanguage
+0,Yes,5plus,before8,english,中文,2,Female,30,ChineseChinese,,native,3,chinese
+1,Yes,5plus,before8,english,chinese,1,Male,38,ChineseEnglish,,native,4,english
+2,Yes,1to5,before8,other,ENGLISH,2,Female,29,EnglishChinese,N/A,nearNative,4,english
+3,Yes,1to5,-1,english,English,-1,Male,31,-1,Best of luck on your research.  Thanks and have a great night.,-1,2,english
+4,Yes,1to5,both8,english,ENGLISH,1,Male,50,EnglishChinese,N/A,advanced,2,english
+5,Yes,5plus,both8,english,汉语,2,Male,49,ChineseEnglish,,native,4,chinese
