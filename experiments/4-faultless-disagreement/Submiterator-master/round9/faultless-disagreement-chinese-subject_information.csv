@@ -5,3 +5,6 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 3,Yes,5plus,both8,english,中文,1,Male,30,ChineseChinese,,native,4,chinese
 4,Yes,5plus,before8,english,,0,Male,21,ChineseChinese,无,native,3,chinese
 5,Yes,1,never,other,United States,1,Male,22,ChineseEnglish,Jesus is the way.,advanced,1,english
+6,Yes,5plus,both8,english,Chinese,2,Female,24,ChineseEnglish,,native,4,chinese
+7,Yes,1to5,never,chinese,English,0,Male,29,ChineseChinese,,nearNative,0,english
+8,Yes,5plus,both8,chinese,中文,2,Male,28,ChineseChinese,多做测试,native,4,chinese

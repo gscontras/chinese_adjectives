@@ -5,3 +5,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 3,Yes,1to5,-1,english,English,-1,Male,31,-1,Best of luck on your research.  Thanks and have a great night.,-1,2,english
 4,Yes,1to5,both8,english,ENGLISH,1,Male,50,EnglishChinese,N/A,advanced,2,english
 5,Yes,5plus,both8,english,汉语,2,Male,49,ChineseEnglish,,native,4,chinese
+6,Yes,5plus,before8,english,中文,2,Male,34,ChineseEnglish,,native,4,chinese
+7,Yes,5plus,before8,english,mardarin,1,Male,26,ChineseChinese,,native,3,chinese

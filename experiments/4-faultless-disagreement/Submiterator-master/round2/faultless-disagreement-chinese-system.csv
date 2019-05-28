@@ -5,3 +5,4 @@ workerid,OS,screenH,screenW,Browser
 3,Windows,800,1280,Chrome
 4,Windows,768,1280,Chrome
 5,Windows,1152,2048,Chrome
+6,Windows,768,1366,Firefox

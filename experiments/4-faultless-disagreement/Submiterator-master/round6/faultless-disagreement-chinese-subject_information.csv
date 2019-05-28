@@ -4,3 +4,5 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 2,Confused,5plus,both8,english,中文,0,Female,49,ChineseChinese,没有,native,3,chinese
 3,Yes,never,never,english,english,1,Male,29,ChineseChinese,This was a good practice test for me Chinese learning.,nearNative,1,english
 4,Yes,5plus,after8,english,廣東話,2,Female,56,ChineseEnglish,,intermediate,4,chinese
+5,Yes,5plus,never,english,english,1,Male,30,ChineseChinese,没有,native,1,english
+6,Yes,1,both8,chinese,Chinese,0,Male,29,ChineseChinese,great,nearNative,3,english

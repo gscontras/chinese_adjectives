@@ -2,3 +2,4 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 0,Yes,1to5,after8,english,中文,2,Male,26,ChineseEnglish,,nearNative,3,chinese
 1,Yes,5plus,both8,english,中文,1,Female,28,ChineseEnglish,,native,4,english
 2,Yes,1to5,both8,english,gf,2,Female,df,ChineseChinese,,intermediate,0,english
+3,Yes,1to5,never,chinese,Chinese,1,Male,24,ChineseEnglish,I really enjoying this experiment.,intermediate,3,english

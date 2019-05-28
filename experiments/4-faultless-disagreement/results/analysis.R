@@ -23,7 +23,7 @@ d = d[d$yearsLived=="5plus",]
 d = d[d$language!="Cantonese"&d$language!="English"&d$language!="上海话"&d$language!="广东话"&d$language!="粤语",]
 
 
-length(unique(d$workerid)) # n=25
+length(unique(d$workerid)) # n=32
 
 summary(d)
 
@@ -31,6 +31,7 @@ summary(d)
 #write.csv(d,"~/Documents/git/cocolab/adjective_ordering/experiments/analysis/order-preference-trimmed.csv")
 
 adj_agr = aggregate(response~predicate*class,FUN=mean,data=d)
+d_agr = aggregate(response~predicate,FUN=mean,data=d)
 adj_agr
 
 class_agr = aggregate(response~class,FUN=mean,data=d)
@@ -47,19 +48,31 @@ ggplot(data=class_s,aes(x=reorder(class,-response,mean),y=response))+
   ylim(0,1)+
   #labs("order\npreference")+
   theme_bw()#+
-#ggsave("../results/class_distance.pdf",height=3)
-#ggsave("../results/LSA_class_distance.png",height=2,width=4.3)
+#ggsave("../results/class_subjectivity.pdf",height=3)
 
 
-class_s = bootsSummary(data=agr, measurevar="correctresponse", groupvars=c("correctclass","condition"))
+#### comparison with faultless disgareement
 
-ggplot(data=class_s,aes(x=reorder(correctclass,-correctresponse,mean),y=correctresponse,fill=condition))+
-  geom_bar(stat="identity",color="black",position=position_dodge(0.9))+
-  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=reorder(correctclass,-correctresponse,mean), width=0.1),position=position_dodge(0.9))+
-  geom_hline(yintercept=0.5,linetype="dashed") + 
-  xlab("\nadjective class")+
-  ylab("preferred\ndistance from noun\n")+
-  ylim(0,1)+
-  #labs("order\npreference")+
-  theme_bw()#+
-#ggsave("../results/class_distance.pdf",height=3)
+o = read.csv("../../3-order-preference-both/results/chinese-naturalness-duplicated.csv",header=T)
+
+o_agr = aggregate(correctresponse~predicate,data=o,FUN=mean)
+
+o_agr$subjectivity = d_agr$response[match(o_agr$predicate,d_agr$predicate)]
+
+gof(o_agr$correctresponse,o_agr$subjectivity)
+# r = 0.68, r2 = 0.47
+results <- boot(data=o_agr, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
+boot.ci(results, type="bca") 
+# 95%   ( 0.2409,  0.6657 )  
+
+ggplot(o_agr, aes(x=subjectivity,y=correctresponse)) +
+  geom_point() +
+  #geom_smooth()+
+  stat_smooth(method="lm",color="black")+
+  #geom_text(aes(label=predicate),size=2.5,vjust=1.5)+
+  ylab("preferred distance from noun\n")+
+  xlab("\nsubjectivity score")+
+  #ylim(0,1)+
+  theme_bw()
+#ggsave("../results/naturalness-subjectivity.pdf",height=3,width=4)
+

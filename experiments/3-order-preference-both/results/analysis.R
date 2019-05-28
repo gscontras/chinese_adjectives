@@ -31,18 +31,6 @@ d$predicate1 = d$predicate1English
 d$predicate2 = d$predicate2English
 d$noun = d$nounEnglish
 
-#write.csv(d,"~/Documents/git/cocolab/adjective_ordering/experiments/analysis/order-preference-trimmed.csv")
-
-#####
-## sense analysis
-#####
-
-
-s = d[d$sense=="no",]
-s = subset(s, select=c("predicate1English","predicate2English","nounEnglish","condition"))
-s = s[!is.na(s$predicate1English),]
-#write.csv(s,"check-for-weird.csv")
-
 #####
 ## duplicate observations by first predicate
 #####
@@ -74,7 +62,7 @@ agr$rightresponse = NULL
 agr$class1 = NULL
 agr$class2 = NULL
 nrow(agr) #1092 total, without sense
-#write.csv(agr,"~/Documents/git/cocolab/adjective_ordering/experiments/analysis/naturalness-duplicated.csv")
+#write.csv(agr,"../results/chinese-naturalness-duplicated.csv.csv")
 
 adj_agr = aggregate(correctresponse~predicate*correctclass,FUN=mean,data=agr)
 adj_agr
@@ -97,15 +85,3 @@ ggplot(data=class_s,aes(x=reorder(correctclass,-correctresponse,mean),y=correctr
 #ggsave("../results/LSA_class_distance.png",height=2,width=4.3)
 
 
-class_s = bootsSummary(data=agr, measurevar="correctresponse", groupvars=c("correctclass","condition"))
-
-ggplot(data=class_s,aes(x=reorder(correctclass,-correctresponse,mean),y=correctresponse,fill=condition))+
-  geom_bar(stat="identity",color="black",position=position_dodge(0.9))+
-  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=reorder(correctclass,-correctresponse,mean), width=0.1),position=position_dodge(0.9))+
-  geom_hline(yintercept=0.5,linetype="dashed") + 
-  xlab("\nadjective class")+
-  ylab("preferred\ndistance from noun\n")+
-  ylim(0,1)+
-  #labs("order\npreference")+
-  theme_bw()#+
-#ggsave("../results/class_distance.pdf",height=3)
