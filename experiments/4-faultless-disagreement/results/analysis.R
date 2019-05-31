@@ -23,7 +23,7 @@ d = d[d$yearsLived=="5plus",]
 d = d[d$language!="Cantonese"&d$language!="English"&d$language!="上海话"&d$language!="广东话"&d$language!="粤语",]
 
 
-length(unique(d$workerid)) # n=32
+length(unique(d$workerid)) # n=35
 
 summary(d)
 
@@ -60,10 +60,10 @@ o_agr = aggregate(correctresponse~predicate,data=o,FUN=mean)
 o_agr$subjectivity = d_agr$response[match(o_agr$predicate,d_agr$predicate)]
 
 gof(o_agr$correctresponse,o_agr$subjectivity)
-# r = 0.68, r2 = 0.47
+# r = 0.69, r2 = 0.48
 results <- boot(data=o_agr, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
 boot.ci(results, type="bca") 
-# 95%   ( 0.2409,  0.6657 )  
+# 95%   ( 0.2666,  0.6647 )   
 
 ggplot(o_agr, aes(x=subjectivity,y=correctresponse)) +
   geom_point() +

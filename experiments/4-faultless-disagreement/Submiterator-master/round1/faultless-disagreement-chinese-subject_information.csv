@@ -7,3 +7,4 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 5,Confused,never,before8,english,English,1,Other,23,ChineseEnglish,,other,0,other
 6,No,1,after8,english,aeiou,1,Female,abc,ChineseEnglish,abc,advanced,2,chinese
 7,No,1to5,both8,chinese,United States,0,Male,31,ChineseChinese,,basic,0,chinese
+8,Yes,1to5,both8,english,English,1,Female,29,EnglishChinese,N/A,other,2,english

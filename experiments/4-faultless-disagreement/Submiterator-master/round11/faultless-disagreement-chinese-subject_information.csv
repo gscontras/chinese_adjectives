@@ -6,3 +6,4 @@ workerid,assess,yearsLived,lived,outsideLanguage,language,enjoyment,gender,age,d
 4,Yes,-1,-1,english,汉语,1,Female,30,-1,,nearNative,1,chinese
 5,Yes,5plus,before8,english,中文,2,Male,25,ChineseEnglish,,native,3,chinese
 6,Confused,5plus,before8,english,中文,1,Female,47,ChineseEnglish,,advanced,4,english
+7,Yes,5plus,after8,english,English,1,Female,60,ChineseEnglish,我覺得寫這些問題的人的母語不是中文。有些問題的語句很奇怪，倒是像從其他語言直接翻議過來的。,intermediate,3,english
