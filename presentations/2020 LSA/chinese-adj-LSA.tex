@@ -1,0 +1,120 @@
+\documentclass[10pt]{article}
+\usepackage[hmargin={.5in},vmargin={.5in},foot={.6in}]{geometry}   
+\geometry{letterpaper}              
+\usepackage{color,graphicx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{varioref}
+\usepackage{textcomp}
+\usepackage{textcomp}
+\usepackage{mflogo}
+\usepackage{wasysym}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{natbib}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{plain} % options: empty , plain , fancy
+\lhead{}\chead{}\rhead{}
+\renewcommand{\headrulewidth}{.5pt}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+\newcommand{\txtp}{\textipa}
+\renewcommand{\rm}{\textrm}
+\newcommand{\sem}[1]{\mbox{$[\![$#1$]\!]$}}
+\newcommand{\lam}{$\lambda$}
+\newcommand{\lan}{$\langle$}
+\newcommand{\ran}{$\rangle$}
+\newcommand{\type}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+
+\newcommand{\bex}{\begin{exe}}
+\newcommand{\eex}{\end{exe}}
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\gcs}[1]{\textcolor{blue}{[gcs: #1]}}
+
+
+\thispagestyle{plain}
+
+\begin{document}
+
+%\maketitle
+
+\begin{center}
+	\textbf{Mandarin has subjectivity-based adjective ordering preferences in the presence of \emph{de}}
+\end{center}
+%Interest in adjective ordering preferences has increased in recent years, with several studies bringing quantitative data to bear on the question of which factors predict the relevant preferences. Researchers have also begun to extend these methods to preferences beyond English. 
+We examine adjective ordering preferences in Mandarin by extending the experimental methodology of \cite{scontrasetal2017adjectives}. \citeauthor{scontrasetal2017adjectives} used behavioral and corpus data to determine that adjective subjectivity is a robust predictor of English ordering preferences: less subjective adjectives are preferred closer to the modified noun (e.g., \emph{green} is judged less subjective than \emph{small} in \emph{small green vase}). The status of ordering preferences in Mandarin is less clear. \cite{sproatshih1991} claim that the relative order of adjectives is free in the presence of the linking particle \emph{de}, leading to optionality in phrases like \emph{xiao-de lu-de huaping} vs.~\emph{lu-de xiao-de huaping} `small green vase'. We therefore set out to determine (i) whether Mandarin possesses ordering preferences in the presence of \emph{de}, and, if so, (ii) to what extent subjectivity predicts those preferences.
+
+\textbf{Expt.~1:} To determine the status of Mandarin preferences, we replicated Expt.~1: \emph{Ordering preferences} from \citeauthor{scontrasetal2017adjectives} using Mandarin translations of the original English materials. In a separate norming study (n=20), we determined that our materials were acceptable with \emph{de} on both adjectives. 32 Mandarin-speaking participants indicated their preferences for pairs of multi-adjective strings formed from 26 adjectives from seven semantic classes, together with ten nouns. The pairs differed on the relative order of the adjectives, and all adjectives appeared with \emph{de}. We used these naturalness ratings to arrive at a single preferred-distance measure for each adjective; values ranged from 0 (preferred closest to the noun) to 1 (preferred farthest from the noun). Fig.~1 summarizes these distance measures by semantic class; there, we see that Mandarin does have stable preferences, as evident in the significant deviation from chance (i.e., from 0.5) in several of the class distance measures.
+
+\textbf{Expt.~2:} To evaluate the role of subjectivity in Mandarin ordering preferences, we first measured adjective subjectivity using a faultless disagreement task (cf.~Expt.~1: \emph{Faultless disagreement validation} from \citeauthor{scontrasetal2017adjectives}). 35 Mandarin-speaking participants indicated the extent to which two speakers could faultlessly disagree in the evaluation of an adjective property. For example, a trial might have speaker A state the Mandarin equivalent of `that chair is small.' Speaker B would counter with, `you're wrong, that chair is not small.' Participants judged whether both speakers could be right (coded as 1), or whether one must be wrong (coded as 0); to the extent that both can be right while disagreeing about a property, the property admits that degree of faultless disagreement, which indexes subjectivity. Fig.~2 plots adjective naturalness ratings against adjective subjectivity scores. In Mandarin, as in English, subjectivity is a reliable predictor of adjective ordering preferences (r$^2 = 0.48$, 95\% CI = $[0.26,0.67]$). 
+
+Although the effect is weaker than the effect observed by \citeauthor{scontrasetal2017adjectives} for English, our results demonstrate that Mandarin indeed does have stable ordering preferences in the presence of linker (\emph{pace} \citealp{sproatshih1991}). Despite using diverging strategies to form modification structures, the two languages share similar adjective ordering preferences, which are predicted by adjective subjectivity.\\
+
+\vfill
+
+\noindent\begin{minipage}[t]{.56\textwidth}
+	\begin{center}
+		\includegraphics[height=2.5in]{../../experiments/3-order-preference-both/results/LSA-class-distance.eps}
+		\end{center}
+	\vspace{-10pt}
+	Fig.~1: Naturalness ratings from Expt.~1 grouped by adjective semantic class. Higher values indicate that a class's adjectives are preferred farther from the modified noun; lower values indicate that a class's adjectives are preferred closer. The dashed line indicates chance level, or the absence of stable preferences. Error bars represent bootstrapped 95\% confidence intervals drawn from 10,000 samples of the data.
+	\end{minipage}
+\hspace{10pt}
+\begin{minipage}[t]{.4\textwidth}
+	\begin{center}
+		\includegraphics[height=2.5in]{../../experiments/4-faultless-disagreement/results/LSA-naturalness-subjectivity.eps}
+		\end{center}
+	\vspace{-10pt}
+	Fig.~2: Ordering preferences (obtained in Expt.~1) plotted against subjectivity scores (obtained in Expt.~2) for each of the 26 adjectives tested. Subjectivity accounts for 48\% of the variance in the ordering preferences (r$^2 = 0.48$, 95\% CI = $[0.26,0.67]$).
+\end{minipage}
+
+%From English to Hungarian to Mokilese, speakers exhibit strong ordering preferences in multi-adjective strings: ``the big blue box'' sounds far more natural than ``the blue big box.'' We show that an adjective's distance from the modified noun is predicted by the adjective's meaning: less subjective adjectives occur closer to the nouns they modify.  
+%Subjectivity synthesizes---rather than supplants---many of the previous approaches to adjective ordering, incorporating notions like ``inherentness'' and ``context dependence'' into an intuitive psychological construct that readily operationalizes as a behavioral measure. 
+%	We established two empirical constructs: first, the preferences themselves, which we measured using naturalness ratings (Expt.~1: 26 adjectives, n=45; Expt.~2: 70 adjectives, n=473) and validated with corpus statistics; and second, adjective subjectivity, which we measured directly (Expts.~3 \& 4; n=217) and corroborated with potential for faultless disagreement (Expt.~5: n=40). 
+%An adjective's semantics predicts its distance from the modified noun, such that less subjective adjectives occur linearly closer to nouns they modify; subjectivity accounts for between 70\% and 85\% of the variation in our estimates of the ordering preferences (Fig.~1). %Word length and frequency also XXX. 
+%To evaluate the \emph{relative} success of subjectivity, we investigated the predictions of three other hypotheses from the literature: intersective vs.~subsective modification (i.e., the mode by which an adjective composes semantically with the noun it modifies; \citealp{truswell2009}; Fig.~2), concept-formability (i.e., whether an adjective composes with a noun to form a complex, idiomatic concept; \citealp{McNally2004,bouchard2005,svenonius2008}; Fig.~3, top), and adjective inherentness (i.e., how essential an adjective's meaning is to the noun it modifies; \citealp{sweet1898,whorf1945}; Fig.~3, bottom). In each case, we found that subjectivity has greater predictive power. 
+%\noindent 
+%%While subjectivity accounts for the regularities we observe in adjective ordering, the deeper explanation for how subjectivity determines the relative order of adjectives remains unsettled. Our results suggest that ordering preferences likely emerge, at least partially, from a desire to place less subjective content closer to the substantive head of a nominal construction (i.e., closer to the modified noun). 
+%%Subjective content allows for miscommunication to arise if speakers and listeners arrive at different judgments about a property description. Hence, less subjective content is more useful at communicating about the world. 
+%%An explanation along these lines, based on pressures to facilitate successful reference resolution, would have to depend on the hierarchical, not linear, ordering of adjectives: noun phrases are built semantically outward from the noun, and more useful, less subjective content enters earlier in this process (cf.~the mirroring of preferences in pre- vs.~post-nominal languages). 
+%%Whtever its source, 
+%
+%Adjective ordering preferences have received considerable attention throughout the history of generative grammar and cognitive psychology, owing to their remarkable stability within and across languages. %Something so robust, the reasoning goes, must evidence a deep principle of the cognitive architecture that shapes language. 
+%Yet while descriptions of the phenomenon abound, an explanation continues to prove elusive. Our findings serve to narrow the space of possible explanations: rather than representing these preferences as a fully specified ranking according to semantic classes or syntactic projections, our results demonstrate that ordering preferences more likely emerge from a desire to place more informative, less subjective content closer to the substantive head of a nominal construction (i.e., closer to the modified noun). Subjective content allows for miscommunication to arise if speakers and listeners arrive at different judgments about a property description. Hence, less subjective content is more useful at communicating about the world. 
+%An explanation along these lines, based on pressures to facilitate successful reference resolution, 
+%would have to depend on the hierarchical, not linear, ordering of adjectives: noun phrases are built semantically outward from the noun, and more useful, less subjective content enters earlier into this process (cf.~the mirroring of preferences in pre- vs.~post-nominal languages). 
+%The success of subjectivity in predicting adjective ordering preferences provides a compelling case where linguistic universals, the regularities we observe in adjective ordering, emerge from cognitive universals, the subjectivity of the properties that the adjectives name.\\
+
+\vfill
+
+%\newpage
+
+  \bibliographystyle{chicago} 
+  \renewcommand{\bibsection}{}
+  \setlength{\bibsep}{0pt plus 0.3ex}
+  \bibliography{greg}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

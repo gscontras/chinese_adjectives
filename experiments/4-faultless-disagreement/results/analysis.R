@@ -75,4 +75,5 @@ ggplot(o_agr, aes(x=subjectivity,y=correctresponse)) +
   #ylim(0,1)+
   theme_bw()
 #ggsave("../results/naturalness-subjectivity.pdf",height=3,width=4)
+#ggsave("../results/LSA-naturalness-subjectivity.png",height=2.8,width=3)
 
