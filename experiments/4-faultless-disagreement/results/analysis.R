@@ -13,7 +13,7 @@ df1 = do.call(rbind, lapply(1:num_round_dirs, function(i) {
     '../Submiterator-master/round', i, '/faultless-disagreement-chinese.csv', sep='')) %>% 
       mutate(workerid = (workerid + (i-1)*9)))}))
 
-d = subset(df1, select=c("workerid","firstutterance","predicate","class","noun","nounclass","slide_number","response","language","age","assess","education","lived","proficiency","homeLanguage","yearsLived","outsideLanguage"))
+d = subset(df1, select=c("workerid","firstutterance","predicate","class","noun","nounclass","slide_number","response","language","age","assess","education","lived","proficiency","homeLanguage","yearsLived","outsideLanguage","gender"))
 
 # only lived both before and after 8 in Chinese-speaking country
 d = d[d$lived=="both8",]
@@ -23,7 +23,7 @@ d = d[d$yearsLived=="5plus",]
 d = d[d$language!="Cantonese"&d$language!="English"&d$language!="上海话"&d$language!="广东话"&d$language!="粤语",]
 
 
-length(unique(d$workerid)) # n=35
+length(unique(d$workerid)) # n=35 (108)
 
 summary(d)
 
@@ -44,7 +44,7 @@ ggplot(data=class_s,aes(x=reorder(class,-response,mean),y=response))+
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=reorder(class,-response,mean), width=0.1))+
   geom_hline(yintercept=0.5,linetype="dashed") + 
   xlab("\nadjective class")+
-  ylab("preferred distance from noun\n")+
+  ylab("subjectivity score\n")+
   ylim(0,1)+
   #labs("order\npreference")+
   theme_bw()#+
