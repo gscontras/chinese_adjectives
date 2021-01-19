@@ -28,7 +28,7 @@ length(unique(d$workerid)) # n=35 (108)
 summary(d)
 
 
-#write.csv(d,"~/Documents/git/cocolab/adjective_ordering/experiments/analysis/order-preference-trimmed.csv")
+#write.csv(d,"../results/chinese-faultless.csv")
 
 adj_agr = aggregate(response~predicate*class,FUN=mean,data=d)
 d_agr = aggregate(response~predicate,FUN=mean,data=d)
